@@ -1,7 +1,7 @@
-import { Button, Card, CardItem, Container, Content, Text, View } from 'native-base';
+import { Button, Card, CardItem, Container, Content, Text, View, Icon } from 'native-base';
 import React, { Component } from 'react';
-import { Image } from 'react-native';
-import { TouchableHighlight } from 'react-native-gesture-handler';
+import { Image,TouchableOpacity } from 'react-native';
+// import { TouchableHighlight, TouchableOpacity } from 'react-native-gesture-handler';
 import ImagePicker from 'react-native-image-picker';
 
 
@@ -21,8 +21,6 @@ class Payment extends Component{
    
     choosePicture = () => {
         // var ImagePicker = require('react-native-image-picker');
-        alert('masuk')
-        return;
         var options = {
             title: 'Pilih Gambar',
             storageOptions: {
@@ -36,13 +34,13 @@ class Payment extends Component{
               console.log('User cancelled image picker');
             }
             else if (response.error) {
-              console.log('ImagePicker Error: ', response.error);
+            //   console.log('ImagePicker Error: ', response.error);
             }
             else if (response.customButton) {
-              console.log('User tapped custom button: ', response.customButton);
+            //   console.log('User tapped custom button: ', response.customButton);
             }
             else {
-              console.log(response.fileName);
+            //   console.log(response.fileName);
               this.setState({
                 srcImg: { uri: response.uri },
                 uri: response.uri,
@@ -170,15 +168,18 @@ class Payment extends Component{
                         </CardItem>
                         <CardItem footer>
                             <Content>
-                                <View style={{alignItems: 'center'}}>
-                                    <TouchableHighlight onPress={()=>alert('sjj')} >
+                                <View  style={{alignItems: 'center'}}>
+                                    <TouchableOpacity onPress={() => this.choosePicture()}>
                                         <View style={{borderStyle: 'solid', borderWidth: 0.8, borderRadius: 6, borderColor: '#bbb', padding: 12}}>
+                                            
                                             <Text style={{marginBottom: 6, fontSize: 13, color: '#666', textAlign:'center'}}>Pilih Bukti Transfer</Text>
-                                            <Image source={this.state.srcImg} style={{width: 160, height: 125}}/> 
+                                            <Image onPress={() => this.choosePicture()}  source={this.state.srcImg} style={{width: 220, height: 170}}/> 
+                                            
                                         </View>
 
-                                    </TouchableHighlight>
-                                   <Button transparent onPress={() => this.choosePicture()} style={{backgroundColor: 'green', marginTop: 18}}>
+                                    </TouchableOpacity>
+
+                                   <Button transparent onPress={() => alert('masuk')} style={{backgroundColor: 'green', marginTop: 18}}>
                                        <Text style={{color: 'white'}}>Konfirmasi Pembayaran</Text>
                                     </Button>
                                 </View>
