@@ -1,22 +1,22 @@
+import { Button, Container, Content, DatePicker, Form, Icon, Input, Item, Label, Text, View } from 'native-base';
 import React, { Component } from 'react';
-import { Drawer, Container, Content, Text, View, Form, Item, Input, Label, DatePicker, Button, Icon} from 'native-base';
-import MyHeader from '../components/MyHeader';
+import { ImageBackground, NativeModules, processColor } from 'react-native';
 
-
-import {Image, ImageBackground} from 'react-native'
-import SideBar from '../components/SideBar';
-import NavBottom from '../components/NavBottom';
-
+const { StatusBarManager } = NativeModules;
 
 class Home extends Component{
     constructor(props) {
         super(props);
         this.state = { chosenDate: new Date() };
         this.setDate = this.setDate.bind(this);
-      }
-      setDate(newDate) {
+    }
+    setDate(newDate) {
         this.setState({ chosenDate: newDate });
-      }
+    }
+    componentDidMount() {
+        StatusBarManager.setColor(processColor('#005400'), true);
+    }
+
 
     closeDrawer() {
         this._drawer._root.close()
@@ -28,11 +28,6 @@ class Home extends Component{
     render(){
         console.log(this.props.navigation)
         return(
-            <Drawer
-                ref={(ref) => { this._drawer = ref; }}
-                content={<SideBar closeDrawer={()=>this.closeDrawer()} navigator={this.navigator} navigation={this.props.navigation}/>}
-                onClose={() => this.closeDrawer()} >
-                <MyHeader openDrawer={()=>this.openDrawer()}/>
                 <Container>
                     {/* <MyHeader/> */}
                     <Content>
@@ -41,8 +36,8 @@ class Home extends Component{
                                 source={require('../assets/img/jumbotron-img.jpg')}
                                 style={{width: '100%', height: '100%'}}
                                 >
-                                <View style={{backgroundColor: 'rgba(18, 184, 18, 0.55)', paddingTop: 45, paddingLeft: 12, paddingRight: 12, paddingBottom: 36}}>
-                                    <Text style={{color: 'white', fontSize: 24, fontWeight: 'bold'}}>Selamat Pagi, Ticket Seekers</Text>
+                                <View style={{backgroundColor: 'rgba(18, 184, 18, 0.55)', paddingTop: 66, paddingLeft: 12, paddingRight: 12, paddingBottom: 42}}>
+                                    <Text style={{color: 'white', fontSize: 24, fontWeight: 'bold'}}>Selamat Siang, Ticket Seekers</Text>
                                     <Text style={{color: 'white'}}>Ingin Pulkam dengan Good Deal ?</Text>
                                     <Text style={{color: 'white'}}>Masuk atau Daftar Sekarang ! !</Text>
                                 </View>
@@ -135,9 +130,8 @@ class Home extends Component{
                         </View>
                     </Content>
 
-                    <NavBottom/>
+                    {/* <NavBottom/> */}
                 </Container>
-            </Drawer>
         )
     }
 }

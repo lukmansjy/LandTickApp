@@ -12,7 +12,7 @@ class Ticket extends Component{
     render(){
         return(
             <Container>
-                <Header style={{ backgroundColor: '#016d01'}}>
+                {/* <Header style={{ backgroundColor: '#016d01'}}>
                     <Left>
                     <Button transparent onPress={()=>this.props.navigation.goBack() }>
                         <Icon name='md-arrow-round-back' />
@@ -22,7 +22,7 @@ class Ticket extends Component{
                     <Title>Tiket Saya</Title>
                     </Body>
                     <Right />
-                </Header>
+                </Header> */}
                 <Content style={{marginHorizontal: 16, marginVertical: 16}}>
                     <Card>
                         <CardItem header style={{flexDirection: 'column'}}>
@@ -56,7 +56,7 @@ class Ticket extends Component{
                                     <Text style={{textAlign: 'center', fontWeight: 'bold', flex: 1}}>(Jakarta)</Text>
                                 </View>
                                 <View style={{flex: 1}}>
-                                    <Text style={{textAlign: 'center', flex: 1, fontSize: 14, color: '#666'}}>Senin, 09 Maraet 2020</Text>
+                                    <Text style={{textAlign: 'center', flex: 1, fontSize: 14, color: '#666'}}>Senin, 09 Maret 2020</Text>
                                 </View>
                                 <View style={{flex: 1}}>
                                     <Text style={{textAlign: 'center', flex: 1, fontSize: 12, color: '#666'}}>Jam 07:00 WIB</Text>
@@ -73,7 +73,7 @@ class Ticket extends Component{
                                     <Text style={{textAlign: 'center', fontWeight: 'bold', flex: 1}}>(Surabaya)</Text>
                                 </View>
                                 <View style={{flex: 1}}>
-                                    <Text style={{textAlign: 'center', flex: 1, fontSize: 14, color: '#666'}}>Senin, 09 Maraet 2020</Text>
+                                    <Text style={{textAlign: 'center', flex: 1, fontSize: 14, color: '#666'}}>Senin, 09 Maret 2020</Text>
                                 </View>
                                 <View style={{flex: 1}}>
                                     <Text style={{textAlign: 'center', flex: 1, fontSize: 12, color: '#666'}}>Jam 21:00 WIB</Text>
@@ -91,7 +91,7 @@ class Ticket extends Component{
                                 </View>
                             </Content>
                         </CardItem>
-                        <CardItem footer>
+                        <CardItem footer style={{marginBottom: 8}}>
                             <View style={{ flex: 1, marginLeft: '20%'}}>
                                 <View style={{flex: 1}}>
                                     <Text style={{flex: 1, color: '#666'}}>Nama</Text>
